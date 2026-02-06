@@ -1,43 +1,39 @@
-🤖 Browser Agent – Version 1 (Web UI)
+# 🤖 Browser Agent v1
 
-A simple browser-based AI agent that searches the web using DuckDuckGo, opens results, extracts relevant information from web pages, and displays the answer through a clean web interface.
+A simple AI-inspired browser agent built using **Python, Flask, Playwright, and BeautifulSoup**.  
+This project searches the web using DuckDuckGo, opens the top result, and extracts relevant information from the page.
 
-This project is Version 1, focused on rule-based browsing and extraction (no LLM yet).
+> ⚠️ **Version 1 Limitation**:  
+> - Extracts content only from the **first search result**
+> - No LLM integration yet  
+> - Sometimes DuckDuckGo may slightly alter the query
 
+Version 2 will improve this with **multi-page browsing and LLM-based reasoning**.
 
-🚀 Features
+---
 
-🌐 Automated web search using DuckDuckGo
+## 🚀 Features
 
-🧭 Opens real web pages using Playwright
+- Web search using DuckDuckGo (avoids Google CAPTCHA)
+- Automated browsing using Playwright
+- HTML parsing with BeautifulSoup
+- Simple Flask-based web interface
+- Clean UI with background image
+- Beginner-friendly agent architecture
 
-📄 Extracts meaningful answers from page content
+---
 
-🧠 Uses pattern-based logic (numbers, percentages, factual lines)
+## 🧱 Tech Stack
 
-🖥️ Simple and clean Flask-based Web UI
+- Python
+- Flask
+- Playwright
+- BeautifulSoup (bs4)
+- HTML, CSS, JavaScript
 
-🐼 Interactive UI inspiration 
+---
 
-⚡ Fast and lightweight (no heavy AI models)
-
-
-🛠️ Tech Stack
-
-Python
-
-Flask – Web framework
-
-Playwright – Browser automation
-
-BeautifulSoup – HTML parsing
-
-DuckDuckGo – Search engine
-
-HTML, CSS, JavaScript – Frontend
-
-
-📂 Project Structure
+## 📂 Project Structure
 
 Browser-Agent-v1/
 │
