@@ -1,24 +1,18 @@
-# Python
+# Virtual environment
+.venv/
+venv/
+
+# Python cache
 __pycache__/
 *.pyc
-*.pyo
-*.pyd
+
+# Environment variables
 .env
-.env.txt
 
-# Playwright
-.playwright/
+# Node / Playwright
+node_modules/
+playwright-report/
 
-# Virtual environment
-venv/
-env/
-
-# OS
+# OS files
 .DS_Store
 Thumbs.db
-
-# Editor
-.vscode/
-
-# Logs
-*.log
