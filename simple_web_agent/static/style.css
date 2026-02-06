@@ -1,0 +1,514 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-image: url("/static/background.jpg");
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+/* ===================================
+   CONTAINER
+   =================================== */
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 550px;
+  background: white;
+  padding: 20px 40px 60px;
+  border-radius: 24px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  overflow: visible;
+}
+
+/* ===================================
+   AGENT CHARACTER
+   =================================== */
+.agent {
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 180px;
+  z-index: 10;
+}
+
+/* Antenna (instead of ears) */
+.ear-l, .ear-r {
+  width: 8px;
+  height: 60px;
+  background: linear-gradient(180deg, #667eea 0%, #4a5568 100%);
+  border-radius: 4px;
+  position: absolute;
+  top: -25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.ear-l::before,
+.ear-r::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(102, 126, 234, 0.8), 0 0 30px rgba(118, 75, 162, 0.4);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(102, 126, 234, 0.8), 0 0 30px rgba(118, 75, 162, 0.4);
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(102, 126, 234, 1), 0 0 50px rgba(118, 75, 162, 0.6);
+    transform: translateX(-50%) scale(1.1);
+  }
+}
+
+.ear-l { 
+  left: 45px;
+}
+
+.ear-r { 
+  right: 45px;
+}
+
+/* Face - AI Agent Head */
+.agent-face {
+  width: 140px;
+  height: 130px;
+  background: linear-gradient(135deg, #f7fafc 0%, #e2e8f0 100%);
+  border: 4px solid #2d3748;
+  border-radius: 25px;
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  overflow: visible;
+}
+
+/* Eyes - Digital Display Style */
+.eye-l, .eye-r {
+  width: 30px;
+  height: 35px;
+  background: #2d3748;
+  border-radius: 8px;
+  position: absolute;
+  top: 40px;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.eye-l { left: 22px; }
+.eye-r { right: 22px; }
+
+/* Eyeballs - Glowing Digital Effect */
+.eyeball-l, .eyeball-r {
+  width: 12px;
+  height: 12px;
+  background: #667eea;
+  border-radius: 50%;
+  position: absolute;
+  top: 12px;
+  left: 9px;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 10px rgba(102, 126, 234, 0.8), 0 0 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Eyes closed state */
+.agent.eyes-closed .eye-l,
+.agent.eyes-closed .eye-r {
+  height: 5px;
+  border-radius: 3px;
+  top: 57px;
+}
+
+.agent.eyes-closed .eyeball-l,
+.agent.eyes-closed .eyeball-r {
+  opacity: 0;
+}
+
+/* Mouth - Digital Smile */
+.mouth {
+  width: 40px;
+  height: 14px;
+  border-bottom: 4px solid #2d3748;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.3s ease;
+}
+
+.agent.thinking .mouth {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #2d3748;
+  border-radius: 50%;
+}
+
+/* Thinking Dots */
+.thinking-dots {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  gap: 6px;
+}
+
+.agent.thinking .thinking-dots {
+  display: flex;
+}
+
+.thinking-dots span {
+  width: 8px;
+  height: 8px;
+  background: #667eea;
+  border-radius: 50%;
+  animation: thinking 1.4s infinite ease-in-out;
+}
+
+.thinking-dots span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.thinking-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.thinking-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes thinking {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+  30% {
+    transform: translateY(-12px);
+    opacity: 1;
+  }
+}
+
+/* Hands - Robotic Arms */
+.hand-l, .hand-r {
+  width: 32px;
+  height: 70px;
+  background: linear-gradient(180deg, #4a5568 0%, #2d3748 100%);
+  border-radius: 16px;
+  position: absolute;
+  top: 120px;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hand-l { 
+  left: 5px;
+  transform-origin: top center;
+}
+
+.hand-r { 
+  right: 5px;
+  transform-origin: top center;
+}
+
+/* Hand animations when typing */
+.agent.typing .hand-l {
+  transform: rotate(-40deg);
+  top: 110px;
+  left: 18px;
+}
+
+.agent.typing .hand-r {
+  transform: rotate(40deg);
+  top: 110px;
+  right: 18px;
+}
+
+/* ===================================
+   LEGS
+   =================================== */
+.leg-l, .leg-r {
+  width: 38px;
+  height: 55px;
+  background: linear-gradient(180deg, #4a5568 0%, #2d3748 100%);
+  border-radius: 0 0 19px 19px;
+  position: absolute;
+  bottom: -30px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+  z-index: -1;
+}
+
+.leg-l { 
+  left: 33%;
+}
+
+.leg-r { 
+  right: 33%;
+}
+
+/* ===================================
+   TITLE ANIMATION
+   =================================== */
+.title {
+  color: transparent;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-top: 80px;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 20px rgba(102, 126, 234, 0.4));
+  animation: titleFloat 3s ease-in-out infinite;
+  text-transform: uppercase;
+}
+
+@keyframes titleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes titleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* ===================================
+   SEARCH FORM
+   =================================== */
+.search-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+#searchInput {
+  flex: 1;
+  padding: 18px 24px;
+  font-size: 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 50px;
+  outline: none;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  background: #f7fafc;
+}
+
+#searchInput:focus {
+  border-color: #667eea;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+#searchInput::placeholder {
+  color: #a0aec0;
+}
+
+button {
+  width: 54px;
+  height: 54px;
+  padding: 0;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+button svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* ===================================
+   RESULT BOX
+   =================================== */
+.result-box {
+  margin-top: 25px;
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  padding: 24px;
+  border-radius: 16px;
+  text-align: left;
+  border: 2px solid #e2e8f0;
+  animation: slideIn 0.5s ease-out;
+}
+
+.result-box h3 {
+  color: #2d3748;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.result-box p {
+  color: #4a5568;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===================================
+   RESPONSIVE
+   =================================== */
+@media (max-width: 600px) {
+  .container {
+    padding: 15px 25px 50px;
+  }
+
+  .agent {
+    top: -105px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .agent-face {
+    width: 115px;
+    height: 105px;
+    top: 20px;
+  }
+
+  .ear-l, .ear-r {
+    width: 6px;
+    height: 50px;
+    top: -20px;
+  }
+
+  .ear-l { left: 40px; }
+  .ear-r { right: 40px; }
+
+  .ear-l::before,
+  .ear-r::before {
+    width: 12px;
+    height: 12px;
+    top: -10px;
+  }
+
+  .eye-l, .eye-r {
+    width: 24px;
+    height: 28px;
+    top: 32px;
+  }
+
+  .eye-l { left: 18px; }
+  .eye-r { right: 18px; }
+
+  .hand-l, .hand-r {
+    width: 26px;
+    height: 58px;
+    top: 98px;
+  }
+
+  .hand-l { left: 4px; }
+  .hand-r { right: 4px; }
+
+  .agent.typing .hand-l {
+    left: 14px;
+    top: 90px;
+  }
+
+  .agent.typing .hand-r {
+    right: 14px;
+    top: 90px;
+  }
+
+  .title {
+    font-size: 1.4rem;
+    margin-top: 70px;
+  }
+
+  #searchInput {
+    font-size: 14px;
+    padding: 15px 20px;
+  }
+
+  button {
+    width: 48px;
+    height: 48px;
+  }
+
+  .leg-l, .leg-r {
+    width: 32px;
+    height: 48px;
+    bottom: -28px;
+  }
+
+  .leg-l { left: 30%; }
+  .leg-r { right: 30%; }
+}
+
+/* ===================================
+   LOADING STATE
+   =================================== */
+.agent.loading .ear-l,
+.agent.loading .ear-r {
+  animation: antennaWiggle 0.6s ease-in-out infinite;
+}
+
+@keyframes antennaWiggle {
+  0%, 100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-3px) rotate(-5deg);
+  }
+  75% {
+    transform: translateX(3px) rotate(5deg);
+  }
+}
