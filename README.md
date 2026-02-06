@@ -59,28 +59,34 @@ User enters a query in the web UI
 
 The agent:
 
-Searches the query on DuckDuckGo
+  1) Searches the query on DuckDuckGo
 
-Opens the first relevant result
+  2) Opens the first relevant result
 
-Reads page content
+  3) Reads page content
 
-Extracts meaningful paragraphs based on:
+  4) Extracts meaningful paragraphs based on:
 
-Length
+      . Length
 
-Presence of numbers (facts, rates, counts)
+      . Presence of numbers (facts, rates, counts)
 
-Displays the extracted answer to the user
+      . Displays the extracted answer to the user
 
 
 ⚠️ Limitation:
 Currently, the agent mainly relies on the first result and simple heuristics.
 
-▶️ How to Run Locally
-1️⃣ Clone the Repository
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the Repository
+```bash
 git clone https://github.com/Bhavitha123-b/Browser-Agent-v1.git
 cd Browser-Agent-v1
+
 
 2️⃣ Create Virtual Environment (Recommended)
 python -m venv .venv
