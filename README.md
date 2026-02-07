@@ -52,6 +52,7 @@ Browser-Agent-v1/
 ├── requirements.txt        # Python dependencies
 └── README.md               # Project documentation
 
+---
 
 ⚙️ How It Works (Version 1)
 
@@ -100,7 +101,7 @@ python app.py
 Open browser and visit:
 http://127.0.0.1:5000
 
-
+---
 🔮 Future Enhancements (Version 2)
 
 Planned improvements:
@@ -109,11 +110,12 @@ Planned improvements:
 - 🌍 Multi-page browsing and aggregation
 - 🧠 Better intent understanding
 
+---
 🏷️ Versioning
 
 - v1 – Rule-based browser agent (current)
 - v2 (planned) – LLM-powered intelligent browser agent
-
+---
 👩‍💻 Author
 
 Bhavitha  
