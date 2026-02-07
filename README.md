@@ -59,19 +59,17 @@ User enters a query in the web UI
 
 The agent:
 
-  1) Searches the query on DuckDuckGo
+1) Searches the query on DuckDuckGo
 
-  2) Opens the first relevant result
+2) Opens the first relevant result
 
-  3) Reads page content
+3) Reads page content
 
-  4) Extracts meaningful paragraphs based on:
+4) Extracts meaningful paragraphs based on:
 
-      . Length
-
-      . Presence of numbers (facts, rates, counts)
-
-      . Displays the extracted answer to the user
+   - Length
+   - Presence of numbers (facts, rates, counts)
+   - Displays the extracted answer to the user
 
 
 ⚠️ Limitation:
@@ -83,7 +81,7 @@ Currently, the agent mainly relies on the first result and simple heuristics.
 ## ⚙️ Installation & Setup
 
 ### 1️⃣ Clone the Repository
-```bash
+
 git clone https://github.com/Bhavitha123-b/Browser-Agent-v1.git
 cd Browser-Agent-v1
 
