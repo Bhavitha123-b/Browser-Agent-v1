@@ -89,6 +89,7 @@ cd Browser-Agent-v1
 
 2️⃣ Create Virtual Environment (Recommended)
 python -m venv .venv
+
 .venv\Scripts\activate   # Windows
 
 3️⃣ Install Dependencies
