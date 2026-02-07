@@ -99,20 +99,8 @@ playwright install
 4️⃣ Run the App
 python app.py
 
-
 Open browser and visit:
-
 http://127.0.0.1:5000
-
-
-🧩 Known Limitations (v1)
-Extracts mainly from first web page
-
-Answers may be incomplete for complex questions
-
-Query rewriting by search engine can affect results
-
-No multi-page aggregation
 
 
 🔮 Future Enhancements (Version 2)
