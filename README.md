@@ -107,22 +107,18 @@ http://127.0.0.1:5000
 
 Planned improvements:
 
-🤖 LLM-based summarization
-
-🌍 Multi-page browsing and aggregation
-
-🧠 Better intent understanding
-
+- 🤖 LLM-based summarization
+- 🌍 Multi-page browsing and aggregation
+- 🧠 Better intent understanding
 
 🏷️ Versioning
 
-v1 – Rule-based browser agent (current)
-
-v2 (planned) – LLM-powered intelligent browser agent
-
+- v1 – Rule-based browser agent (current)
+- v2 (planned) – LLM-powered intelligent browser agent
 
 👩‍💻 Author
 
-Bhavitha
-B.Tech Data Science Student
+Bhavitha  
+B.Tech Data Science Student  
 Aspiring AI & Software Engineer 🚀
+
