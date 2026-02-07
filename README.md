@@ -37,17 +37,17 @@ Version 2 will improve this with **multi-page browsing and LLM-based reasoning**
 
 
 Browser-Agent-v1/
-├── app.py                 # Flask app entry point
-├── browser_agent.py       # Core browsing & extraction logic
+├── app.py   # Flask app entry point
+├── browser_agent.py   # Core browsing & extraction logic
 ├── templates/
-│   └── index.html         # Web UI (search interface)
+│ └── index.html   # Web UI (search interface)
 ├── static/
-│   ├── style.css          # Styling for UI
-│   ├── script.js          # Frontend interactions
-│   └── background.jpg     # Background image for the UI
-├── .gitignore             # Ignored files (venv, binaries, etc.)
-├── requirements.txt       # Python dependencies
-└── README.md              # Project documentation
+│ ├── style.css   # Styling for UI
+│ ├── script.js   # Frontend interactions
+│ └── background.jpg   # Background image for the UI
+├── .gitignore   # Ignored files (venv, binaries, etc.)
+├── requirements.txt  # Python dependencies
+└── README.md   # Project documentation
 
 
 ---
